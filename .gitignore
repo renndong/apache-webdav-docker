@@ -1,0 +1,4 @@
+/config/*
+!/config/user.passwd
+/data/*
+!/data/.keep

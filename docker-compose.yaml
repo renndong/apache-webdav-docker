@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nginx-webdav:
+    container_name: apache-webdav
+    image: renndong/apache-webdav
+    environment:
+      - PUID=$UID
+      - PGID=$GID
+    volumes:
+      - /path/to/your/data/path:/data
+      - /path/to/your/config/path:/config
+    network_mode: bridge
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
